@@ -1,0 +1,17 @@
+<%= form_with(model: railway_station, local: true) do |form| %>
+  <% if railway_station.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(railway_station.errors.count, "error") %> prohibited this railway_station from being saved:</h2>
+
+      <ul>
+      <% railway_station.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
