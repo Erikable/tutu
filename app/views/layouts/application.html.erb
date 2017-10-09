@@ -10,5 +10,12 @@
 
   <body>
     <%= yield %>
+    <br>
+    <hr>
+      <%= link_to 'ссылка на поездa', trains_path %>
+      <%= link_to 'ссылка на маршруты', routes_path %>
+      <%= link_to 'ссылка на станции', railway_stations_path %>
+    | #это временно для удобства
+    <hr>
   </body>
 </html>

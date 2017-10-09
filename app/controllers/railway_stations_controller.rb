@@ -45,6 +45,6 @@ class RailwayStationsController < ApplicationController
 
     def railway_station_params
       params.require(:railway_station).permit(:title)
-      #params.fetch(:railway_station, {})
+      #params.fetch(:railway_station, {}).repmit(:title)
     end
 end
