@@ -5,5 +5,19 @@
   <%= @route.title %>
 </p>
 
+<p>станции в маршруте: </p>
+
+<% if @route.railway_stations.empty? %>
+  <p> Список пуст  </p>
+<% else %>
+  <p>станции входящие в маршрут:</p>
+  <ul>
+    <% @route.railway_stations.each do |st| %>
+      <li><%= st.title %></li>
+  </ul>
+  <% end %>
+    <% end %>
+
+
 <%= link_to 'Edit', edit_route_path(@route) %> |
 <%= link_to 'Back', routes_path %>
