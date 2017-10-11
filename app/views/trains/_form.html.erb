@@ -19,7 +19,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :current_station_id, 'Текущая станция' %> 
+    <%= form.label :current_station, 'Текущая станция' %> 
     <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
   </div>
 
