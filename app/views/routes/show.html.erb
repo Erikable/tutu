@@ -16,7 +16,7 @@
       <li><%= station.title %></li>
   </ul>
   <% end %>
-    <% end %>
+<% end %>
 
 <br>
 <p>поездов на этом маршруте: </p>
@@ -25,7 +25,7 @@
 <% else %>
   <% @route.trains.each do |train| %>
   <%= train.number %>
-  <% end %>
+<% end %>
 <% end %> 
 <br>
 <br>

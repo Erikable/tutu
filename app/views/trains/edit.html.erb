@@ -1,43 +1,6 @@
 <h1>Editing Train</h1>
 
-<%#<%= render 'form', train: @train %>
-
-<%= form_with(model: @train, local: true) do |form| %>
-  <% if @train.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@train.errors.count, "error") %> prohibited this train from being saved:</h2>
-
-      <ul>
-      <% @train.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-  <div class="field">
-    <%= form.label :number  %>
-    <%= form.number_field :number, id: :train_number %>
-  </div>
-
-  <div class="field">
-   <%= form.label :current_station_id, 'Текущая станция' %> 
-    <%= form.collection_select :current_station_id, RailwayStation.all, :id, :title %>
-  </div>
-
-  <div class="field">
-   <%= form.label :route, 'Маршрут' %>
-    <%= form.collection_select :route_id, Route.all, :id, :title %>
-  </div>
-  
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
-<br>
-<br>
+<%= render 'form', train: @train %>
 
 <%= link_to 'Show', @train %> |
 <%= link_to 'Back', trains_path %>
