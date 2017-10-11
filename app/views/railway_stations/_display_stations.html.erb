@@ -1,8 +1,0 @@
-<% @railway_stations.each do |railway_station| %>
-  <tr>
-    <td><%= railway_station.title %></td>
-      <td><%= link_to 'Show', railway_station %></td>
-      <td><%= link_to 'Edit', edit_railway_station_path(railway_station) %></td>
-      <td><%= link_to 'Destroy', railway_station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
