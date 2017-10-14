@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Вагоны:</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>тип вагона</th>
+      <th>верхние места</th>
+      <th>нижние места</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wagons.each do |wagon| %>
+      <tr>
+        <td><%= wagon.wagon_type %></td>
+        <td><%= wagon.top_seats %></td>
+        <td><%= wagon.bottom_seats %></td>
+        <td><%= link_to 'Показать', wagon %></td>
+        <td><%= link_to 'Редактировать', edit_wagon_path(wagon) %></td>
+        <td><%= link_to 'Удалить', wagon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Новый вагон создать', new_wagon_path %>
