@@ -3,7 +3,7 @@
 <%= form_with(model: @wagon, local: true) do |form| %>
     <div class="field">
       <%= form.label :wagon_type, "Тип вагона: " %>
-      <%= form.select :wagon_type, (['плацкарт', 'купе']) %>
+      <%= form.select :wagon_type, ['плацкарт', 'купе'] %>
     </div>
 
     <div class="field">

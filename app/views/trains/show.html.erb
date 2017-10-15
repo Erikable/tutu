@@ -28,18 +28,15 @@
   <% if @train.wagons.empty? %>
      вагонов нет
   <% else %>
-   <ul><p>Плацкарт</p>
-    <li>Кол-во вагонов: <%= @train.wagons.count %></li>
-    <li>Кол-во верхних мест: </li>
-    <li>Кол-во нижних мест: </li>
-  </ul>
-  <ul><p>Купе</p>
-    <li>Кол-во вагонов: <%= @train.wagons.count %></li>
-    <li>Кол-во верхних мест: </li>
-    <li>Кол-во нижних мест: </li>
-  </ul>
+   <ul><p>Всего вагонов: <%= @train.wagons.count%></p>
+    <li>Кол-во вагонов типа купе: <%= @train.train_has_wagons('купе') %></li>
+    <li>Кол-во верхних мест  в купе: <%= @train.seats_in_wagon('купе', :top_seats) %></li>
+    <li>Кол-во нижних мест в купе: <%= @train.seats_in_wagon('купе', :bottom_seats) %></li><br>
 
-
+    <li>Кол-во вагонов типа плац: <%= @train.train_has_wagons('плацкарт') %></li>
+    <li>Кол-во верхних мест  в плац: <%= @train.seats_in_wagon('плацкарт', :top_seats) %></li>
+    <li>Кол-во нижних мест в плац: <%= @train.seats_in_wagon('плацкарт', :bottom_seats) %></li>
+  </ul>
   <% end %>  
 </p>
 <br>
