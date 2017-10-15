@@ -1,28 +1,4 @@
-<%= form_with(model: @wagon, local: true) do |form| %>
-    <div class="field">
-      <%= form.label :wagon_type, "Тип вагона: " %>
-      <%= form.select :wagon_type, ['плацкарт', 'купе'] %>
-    </div>
-
-    <div class="field">
-      <%= form.label :top_seats, "Верхних мест: " %>
-      <%= form.number_field :top_seats %>
-    </div>
-
-    <div class="field">
-      <%= form.label :bottom_seats, "Нижних мест: " %>
-      <%= form.number_field :bottom_seats %>
-    </div>
-
-    <div class="field">
-      <%= form.label :train, 'Поезд: ' %>
-      <%= form.collection_select :train_id, Train.all, :id, :number %>
-    </div>
-
-    <div class="actions">
-      <%= form.submit "редактировать" %>
-    </div>
-<% end %>
-
+<h1>Редактировать вагон</h1>
+<%= render 'form', wagon: @wagon %>
 <%= link_to 'Показать', @wagon %>
 <%= link_to 'Назад', wagons_path %>
