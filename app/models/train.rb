@@ -5,12 +5,12 @@ class Train < ApplicationRecord
   has_many :wagons
   validates :number, presence: true
 
-  def train_has_wagons(wag_type) # Кол-во плацкартный/купейных вагонов в составе поезда
-    self.wagons.count {|wagon| wagon.wagon_type == wag_type}
+  def wagons_count(wagon_type)
+    self.wagons.where(wagon_type: wagon_type).count
   end
 
-  def seats_in_wagon(wag_type, side_type) # Кол-во мест: плацкартных верхних/нижних, купейных верхних/нижних
-    self.wagons.where(wagon_type: wag_type).sum(side_type)
+  def seats_count(wagon_type, side_type)
+    self.wagons.where(wagon_type: wagon_type).sum(side_type)
   end
 
 end

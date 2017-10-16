@@ -29,13 +29,13 @@
      вагонов нет
   <% else %>
    <ul><p>Всего вагонов: <%= @train.wagons.count%></p>
-    <li>Кол-во вагонов типа купе: <%= @train.train_has_wagons('купе') %></li>
-    <li>Кол-во верхних мест  в купе: <%= @train.seats_in_wagon('купе', :top_seats) %></li>
-    <li>Кол-во нижних мест в купе: <%= @train.seats_in_wagon('купе', :bottom_seats) %></li><br>
+    <li>Кол-во вагонов типа купе: <%= @train.wagons_count('купе') %></li>
+    <li>Кол-во верхних мест  в купе: <%= @train.seats_count('купе', :top_seats) %></li>
+    <li>Кол-во нижних мест в купе: <%= @train.seats_count('купе', :bottom_seats) %></li><br>
 
-    <li>Кол-во вагонов типа плац: <%= @train.train_has_wagons('плацкарт') %></li>
-    <li>Кол-во верхних мест  в плац: <%= @train.seats_in_wagon('плацкарт', :top_seats) %></li>
-    <li>Кол-во нижних мест в плац: <%= @train.seats_in_wagon('плацкарт', :bottom_seats) %></li>
+    <li>Кол-во вагонов типа плац: <%= @train.wagons_count('плацкарт') %></li>
+    <li>Кол-во верхних мест  в плац: <%= @train.seats_count('плацкарт', :top_seats) %></li>
+    <li>Кол-во нижних мест в плац: <%= @train.seats_count('плацкарт', :bottom_seats) %></li>
   </ul>
   <% end %>  
 </p>
