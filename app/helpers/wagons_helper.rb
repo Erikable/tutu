@@ -1,0 +1,2 @@
+module WagonsHelper
+end
