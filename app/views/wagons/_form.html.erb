@@ -1,0 +1,42 @@
+<%= form_with(model: @wagon.becomes(Wagon), local: true) do |form| %>
+  <%= render 'common/errors', resource: wagon %>
+
+    <div class="field">
+      <%= form.label :type, "Тип вагона: " %>
+      <%= form.select :type, ['PlatscartWagon', 'CoupeWagon', 'SvWagon','SeatWagon'] %>
+    </div> 
+
+    <div class="field">
+      <%= form.label :top_seats, "Верхних мест: " %>
+      <%= form.number_field :top_seats %>
+    </div>
+
+    <div class="field">
+      <%= form.label :bottom_seats, "Нижних мест: " %>
+      <%= form.number_field :bottom_seats %>
+    </div>
+
+    <div class="field">
+      <%= form.label :side_top_seats, "Боковых Верхних мест: " %>
+      <%= form.number_field :side_top_seats %>
+    </div>
+
+    <div class="field">
+      <%= form.label :side_bottom_seats, "Боковых Нижних мест: " %>
+      <%= form.number_field :side_bottom_seats %>
+    </div>
+
+    <div class="field">
+      <%= form.label :seat_seats, "Сидячих мест: " %>
+      <%= form.number_field :seat_seats %>
+    </div>
+
+    <div class="field">
+      <%= form.label :train, 'Поезд: ' %>
+      <%= form.collection_select :train_id, Train.all, :id, :number %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit "#{ @wagon.new_record? ? 'Создать' : 'Изменить' }" %>
+    </div>
+<% end %>
