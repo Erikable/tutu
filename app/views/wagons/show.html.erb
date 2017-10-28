@@ -5,16 +5,12 @@
   <%= @wagon.number %>
 </p>
 
-
 <p>
-  <strong>Верхние места:</strong>
-  <%= @wagon.top_seats %>
+  <strong>тип вагона:</strong>
+  <%= @wagon.type %>
 </p>
 
-<p>
-<strong>Нижние места:</strong>
-  <%= @wagon.bottom_seats %>
-</p>
+<%= render @wagon.type.underscore %>
 
 <p>
 <strong>Поезд:</strong>
