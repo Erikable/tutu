@@ -3,10 +3,9 @@ class Route < ApplicationRecord
   has_many :railway_stations, through: :railway_stations_routes
   has_many :trains
 
-  validate :stations_count
-
   before_validation :set_title
 
+  validate :stations_count
   validates :title, presence: true
 
   private
