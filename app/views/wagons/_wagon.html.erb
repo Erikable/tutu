@@ -1,7 +1,6 @@
 <tr>
   
-  <td><%= wagon.top_seats %></td>
-  <td><%= wagon.bottom_seats %></td>
+  <td><%= wagon.number %></td>
   <td><%= link_to 'Показать', wagon_path(wagon) %></td> <%# или так <%= link_to 'Показать', @wagon  %>
   <td><%= link_to 'Редактировать', edit_wagon_path(wagon) %></td>
   <td><%= link_to 'Удалить', wagon_path(wagon), method: :delete, data: { confirm: 'Are you sure?' } %> </td>
