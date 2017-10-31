@@ -28,7 +28,8 @@
 <% @train.wagons.each do |wagon| %>
   <p><%= link_to "#{wagon.number}", wagon_path(wagon) %></p>
 <% end %>
-<br><br>
+
+<br>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |
 <%= link_to 'Back', trains_path %>

@@ -15,8 +15,14 @@
     <%= form.label :route, 'Маршрут' %>
     <%= form.collection_select :route_id, Route.all, :id, :title %>
   </div>
+  
+  <div class="field">
+    <%= form.label :flag, 'сортировка' %> 
+    <%= form.check_box :flag %>
+  </div>
 
   <div class="actions">
     <%= form.submit "#{ @train.new_record? ? 'Создать' : 'Изменить' }"%>
   </div>
+
 <% end %>
