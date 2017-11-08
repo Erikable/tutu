@@ -1,23 +1,21 @@
 class Wagon < ApplicationRecord
   belongs_to :train
 
-  before_validation :set_number
+  before_validation :set_number, on: :create
   
-  validates :number , uniqueness: {scope: :train_id}  
-  validates :number, presence: true
+  validates :number , uniqueness: {scope: :train_id}
 
   scope :economy, -> { where(type: 'PlatscartWagon') }
   scope :coupe, -> { where(type: 'CoupeWagon') }
   scope :economy, -> { where(type: 'SvWagon') }
   scope :coupe, -> { where(type: 'SeatWagon') }
   scope :ordered, -> { order(:number) }
-  scope :sort, -> { order('number DESC') }
+  #scope :sort, -> { order("number DESC") }
 
-  
-  
   private
 
   def set_number
     self.number = train.wagons.maximum(:number).to_i + 1
   end
+
 end

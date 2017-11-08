@@ -17,9 +17,10 @@
   </div>
   
   <div class="field">
-    <%= form.label :flag, 'сортировка' %> 
+    <%= form.label :flag, 'сортировать по возрастанию' %> 
     <%= form.check_box :flag %>
   </div>
+  
 
   <div class="actions">
     <%= form.submit "#{ @train.new_record? ? 'Создать' : 'Изменить' }"%>
