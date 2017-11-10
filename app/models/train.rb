@@ -16,7 +16,7 @@ class Train < ApplicationRecord
   end
 
   def sorted_wagons
-    if flag
+    if sort_from_head
       wagons.order("wagons.number ASC")
       #wagons.order(number: :asc)
       #Train.joins(:wagons).order(wagons: { number: :asc })

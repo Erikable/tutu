@@ -5,5 +5,6 @@ class RailwayStation < ApplicationRecord
 
   # Выводить список станций в маршруте по порядковому номеру
   scope :sorted, -> { joins(:railway_stations_routes).order("railway_stations_routes.station_number ASC").uniq }
-  
+  #scope :rrr, -> { select("railway_stations.*, railway_stations_routes.station_number") }
+
 end
