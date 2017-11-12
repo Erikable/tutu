@@ -1,10 +1,5 @@
 class Train < ApplicationRecord
-  has_many :wagons#, -> (train) {if train.flag 
-#      order(number: :asc)
-#    else 
-#      order(number: :desc)
-#    end
-#  }
+  has_many :wagons
  
   belongs_to :route, optional: true
   has_many :tickets
@@ -14,17 +9,9 @@ class Train < ApplicationRecord
   def count_seats(wagon_type, seats_type)
     wagons.where(type: wagon_type).sum(seats_type) 
   end
-
+  
   def sorted_wagons
-    if sort_from_head
-      wagons.order("wagons.number ASC")
-      #wagons.order(number: :asc)
-      #Train.joins(:wagons).order(wagons: { number: :asc })
-    else
-      wagons.order("wagons.number DESC")
-      #wagons.order(number: :desc)
-      #Train.joins(:wagons).order(wagons: { number: :desc })
-    end
+    sort_direction = sort_from_head ? :asc : :desc
+    wagons.order(number: sort_direction)
   end
-
 end

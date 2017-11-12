@@ -12,10 +12,8 @@
 <% else %>
   <p>станции входящие в маршрут:</p>
   <ul>
-    <% @route.railway_stations.rrr.sorted.each do |station| %>
+    <% @route.railway_stations.station_number_to_station.sorted.each do |station| %>
     <%= station.station_number %> - <%= station.title %>
-    <%#<% @route.railway_stations.sorted.each do |station| %>
-    <%#<%= station.railway_stations_routes.ddd %><%#<%= station.title %> <%#<%= @route.railway_stations.rrr %> 
   </ul>
   <% end %>
 <% end %>
