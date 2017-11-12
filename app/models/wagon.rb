@@ -10,11 +10,11 @@ class Wagon < ApplicationRecord
   scope :economy, -> { where(type: 'SvWagon') }
   scope :coupe, -> { where(type: 'SeatWagon') }
   scope :ordered, -> { order(:number) }
-  #scope :sort, -> { order("number DESC") }
 
   private
 
   def set_number
     self.number = train.wagons.maximum(:number).to_i + 1
   end
+
 end
