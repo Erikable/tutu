@@ -1,4 +1,5 @@
 class WagonsController < ApplicationController
+
   before_action :set_wagon, only: [:show, :edit, :update, :destroy]
 
   def index

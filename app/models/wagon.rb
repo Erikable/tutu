@@ -17,5 +17,4 @@ class Wagon < ApplicationRecord
   def set_number
     self.number = train.wagons.maximum(:number).to_i + 1
   end
-
 end
