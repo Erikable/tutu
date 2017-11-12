@@ -6,5 +6,4 @@ class RailwayStation < ApplicationRecord
   scope :sorted, -> { joins(:railway_stations_routes, :routes).order("railway_stations_routes.station_number ASC").uniq }
   
   scope :station_number_to_station, -> { select("railway_stations.*, railway_stations_routes.station_number") }
-
 end
