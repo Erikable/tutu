@@ -10,14 +10,23 @@
 <% if @route.railway_stations.empty? %>
   <p> Список пуст  </p>
 <% else %>
-  <p>станции входящие в маршрут:</p>
-  <ul>
+ 
+<table>
+  <thead>
+    <tr>
+      <td width="200px">Название</td>
+      <td>Позиция</td>
+    </tr>
+  </thead>
+  <tbody>
     <% @route.railway_stations.station_number_to_station.sorted.each do |station| %>
-    <%= station.station_number %> - <%= station.title %>
-    <%#<% @route.railway_stations.sorted.each do |station| %>
-    <%#<%= station.railway_stations_routes.ddd %><%#<%= station.title %> <%#<%= @route.railway_stations.rrr %> 
-  </ul>
-  <% end %>
+      <tr>
+        <td><%= station.title %></td>
+        <td><%= station.station_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 <% end %>
 
 <br>
