@@ -26,8 +26,12 @@
 <h1>Вагоны поезда <%= @train.number %>:</h1>
 
 <% @train.sorted_wagons.each do |wagon| %>
-  <p><%= link_to "#{wagon.number}", wagon_path(wagon) %></p>
+  <p><%= link_to "#{wagon.number}", train_wagon_path(@train, wagon) %></p>
 <% end %>
+
+<p>
+  <%= link_to "Добавить вагон", new_train_wagon_path(@train) %>
+</p>
 
 <br>
 
