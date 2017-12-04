@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   
   resources :routes
-  #resources :wagons # delete it later !!!
+  resource :search, only: [:new, :show, :edit]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'railway_stations#index'

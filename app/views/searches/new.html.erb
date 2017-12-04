@@ -1,0 +1,33 @@
+<h6>search page</h6>
+
+<td>
+  <%= form_tag(search_path, method: "get") do %>
+  start from:
+  <%= select_tag :start_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title)%>
+  to:
+  <%= select_tag :end_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title)%>
+  <br>
+  <br>
+  <%= submit_tag "искать" %>
+  <% end %>
+</td>
+
+<%#
+<%= form_with(model: @search, method: "get", local: true) do |form| %>
+   
+<%#  <div class="field">
+    <%= form.label :start_station_id, "отправление из:" %>
+<%#    <%= form.collection_select :start_station_id, RailwayStation.all, :id, :title %>
+<%#  </div>
+
+  <div class="field">
+    <%= form.label :end_station_id, 'Текущая станция' %> 
+<%#    <%= form.collection_select :end_station_id, RailwayStation.all, :id, :title %>
+<%#  </div>
+
+  <div class="actions">
+    <%= form.submit "искать"%>
+<%#  </div>
+
+<% end %> 
+

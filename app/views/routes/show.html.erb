@@ -1,4 +1,4 @@
- <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Название:</strong>
@@ -15,8 +15,8 @@
       <tr>
         <td width="200px">Название</td>
         <td>Позиция</td>
-        <td>arrival</td>
         <td>departure</td>
+        <td>arrival</td>
       </tr>
     </thead>
     <tbody>
@@ -31,17 +31,17 @@
             <% end %>
           </td>
           <td>
-            <%= form_tag update_arrival_time_railway_station_path(station), method: :patch do %>
-            <%= time_field_tag :arrival_time, station.arrival_at(@route) %>
-            <%= hidden_field_tag :route_id, @route.id %>
-            <%= submit_tag "Изменить" %>
+            <%= form_tag update_departure_time_railway_station_path(station), method: :patch do %>
+              <%= time_field_tag :departure_time, station.departure_at(@route) %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= submit_tag "Изменить" %>
             <% end %>
           </td>
           <td>
-            <%= form_tag update_departure_time_railway_station_path(station), method: :patch do %>
-            <%= time_field_tag :departure_time, station.departure_at(@route) %>
-            <%= hidden_field_tag :route_id, @route.id %>
-            <%= submit_tag "Изменить" %>
+            <%= form_tag update_arrival_time_railway_station_path(station), method: :patch do %>
+              <%= time_field_tag :arrival_time, station.arrival_at(@route).try(:strftime, "%H:%M") %>
+              <%= hidden_field_tag :route_id, @route.id %>
+              <%= submit_tag "Изменить" %>
             <% end %>
           </td>
         </tr>

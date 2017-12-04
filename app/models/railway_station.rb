@@ -9,7 +9,7 @@ class RailwayStation < ApplicationRecord
     station_route = railway_stations_routes.where(route: route).first
     station_route.update(station_number: station_number) if station_route
   end
-
+  # метод возвращает нужную позицию
   def position_in(route)
     station_route(route).try(:station_number)
   end
@@ -24,13 +24,13 @@ class RailwayStation < ApplicationRecord
   end
 
 
-  def update_departure_time(route, arrival_time)
+  def update_departure_time(route, departure_time)
     station_route ||= railway_stations_routes.where(route: route).first
     station_route.update(departure_time: departure_time) if station_route
   end
 
   def departure_at(route)
-    station_route(route).try(:departure_time)
+    station_route(route).try(:departure_time).try(:strftime, '%H:%M')
   end
 
   protected

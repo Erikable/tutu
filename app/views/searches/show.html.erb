@@ -1,0 +1,36 @@
+<table>
+  
+  <thead>
+    <tr>
+      <th>поезд</th>
+      <th>отправление</th>
+      <th>прибытие</th>
+      <th>маршрут</th>
+      <th>билет</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @routes.each do |route| %>
+      <% route.trains.each do |train| %>
+        <tr>
+          <td><%= train.number %></td>
+          <td><%= @start_station.departure_at(train.route) %></td>
+          <td><%= @end_station.arrival_at(train.route) %></td>
+          <td><%= train.route.title %></td>
+          <td> <%= link_to "купить"   %> </td>
+        <td>
+      <%end%> 
+    <%end%>
+     
+  </tbody>
+
+</table>
+
+
+
+
+
+
+<br>
+<%= link_to 'Back', new_search_path %>

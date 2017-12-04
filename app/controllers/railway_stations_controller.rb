@@ -49,8 +49,11 @@ class RailwayStationsController < ApplicationController
     @railway_station.update_arrival_time(@route, params[:arrival_time])
     redirect_to @route
   end
-
+#
   def update_departure_time
+    @route = Route.find(params[:route_id])
+    @railway_station.update_departure_time(@route, params[:departure_time])
+    redirect_to @route
   end
 
   private
@@ -60,6 +63,5 @@ class RailwayStationsController < ApplicationController
 
     def railway_station_params
       params.require(:railway_station).permit(:title)
-      #params.fetch(:railway_station, {}).repmit(:title)
     end
 end
