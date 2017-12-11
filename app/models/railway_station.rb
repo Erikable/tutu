@@ -20,7 +20,7 @@ class RailwayStation < ApplicationRecord
   end
 
   def arrival_at(route)
-    station_route(route).try(:arrival_time)
+    station_route(route).try(:arrival_time).try(:strftime, '%H:%M')
   end
 
 
