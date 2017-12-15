@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @route.railway_stations.ordered_station_number_to_station.each do |station| %>
+      <% @route.railway_stations.order_stations.each do |station| %>
         <tr>
           <td><%= station.title %></td>
           <td>

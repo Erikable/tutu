@@ -49,7 +49,7 @@ class WagonsController < ApplicationController
     end
 
     def wagon_params
-      params.require(:wagon).permit(:number, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :seat_seats, :train_id, :type)
+      params.require(:wagon).permit(:number, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :seat_seats, :type)
+      # :train_id убран из парамс тк теперь id  поезда берется из url !
     end
-
 end
