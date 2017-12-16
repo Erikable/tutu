@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   
   resources :routes
-  resource :search, only: [:new, :show, :edit]
+  resource :search, only: [:show, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'railway_stations#index'
