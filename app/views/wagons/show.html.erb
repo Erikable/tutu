@@ -17,6 +17,5 @@
   <%= @wagon.train.number %>
 </p>
 
-
-<%= link_to 'Редактировать', edit_train_wagon_path %> |
+<%= link_to 'Редактировать', edit_train_wagon_path(@wagon.train) %> |
 <%= link_to 'Назад к поезду', train_path(@wagon.train) %>
