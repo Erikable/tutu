@@ -8,6 +8,10 @@ class Route < ApplicationRecord
   validate :stations_count
   validates :title, presence: true
 
+  def self.search_route_with_stations(start_station_id, end_station_id)
+    joins(:railway_stations).where(railway_stations: { id: start_station_id }) & joins(:railway_stations).where(railway_stations: { id: end_station_id })
+  end
+
   private
 
   def set_title

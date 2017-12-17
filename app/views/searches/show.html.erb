@@ -1,0 +1,41 @@
+<td>
+  <%= form_tag(search_path, method: "post") do %>
+  start from:
+  <%= select_tag :start_station_id, options_from_collection_for_select(@stations, :id, :title) %> 
+  to:
+  <%= select_tag :end_station_id, options_from_collection_for_select(@stations, :id, :title)%>
+  <br>
+  <br>
+  <%= submit_tag "искать" %>
+  <% end %>
+</td>
+<hr>
+
+<% if @routes.present? %>
+  <table>
+    <thead>
+      <tr>
+        <th>поезд</th>
+        <th>отправление</th>
+        <th>прибытие</th>
+        <th>маршрут</th>
+        <th>билет</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @routes.each do |route| %>
+        <% route.trains.each do |train| %>
+          <tr>
+            <td><%= train.number %></td>
+            <td><%= @start_station.departure_at(route) %></td>
+            <td><%= @end_station.arrival_at(route) %></td>
+            <td><%= train.route.title %></td>
+            <td> <%= link_to "купить", new_ticket_path(train_id: train.id, 
+            start_station_id: @start_station, end_station_id: @end_station) %> </td>
+          <td>
+        <%end%> 
+      <%end%>
+    </tbody>
+  </table>
+  <br>
+<% end %>
