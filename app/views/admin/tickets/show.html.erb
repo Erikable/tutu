@@ -1,0 +1,18 @@
+<p> Информация о маршруте Admin: </p>
+
+<p>маршрут: <%= @ticket.train.route.title %></p>
+<p>поезд: <%= @ticket.train.number %></p>
+
+<p>отправление в: <%= @ticket.start_station.departure_at(@ticket.train.route) %></p>
+<p>отправление c: <%= @ticket.start_station.title %></p>
+
+<p>прибытие в: <%= @ticket.end_station.arrival_at(@ticket.train.route) %></p>
+<p>прибытие на: <%= @ticket.end_station.title %></p>
+
+<p> Информация о билете: </p>
+<p>билет №: <%= @ticket.number %></p>
+<p>Имя: <%= @ticket.first_name %></p>
+<p>Фамилия: <%= @ticket.family_name %></p>
+<p>Отчество: <%= @ticket.patronymic %></p>
+<p>Паспорт: <%= @ticket.passport %></p>
+<p>билет был приобретен: <strong><%= @ticket.user.name %></strong></p>

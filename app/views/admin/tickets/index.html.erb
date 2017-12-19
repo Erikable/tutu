@@ -1,0 +1,24 @@
+<p>все проданные билеты Admin:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>покупатель</th>
+      <th>№ билета</th>
+      <th>№ поезда</th>
+      <th>маршрут</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.user.name %></td>
+        <td><%= ticket.number %></td>
+        <td><%= ticket.train.number %></td>
+        <td><%= ticket.train.route.title %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
