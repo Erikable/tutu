@@ -18,6 +18,7 @@
         <td><%= ticket.train.number %></td>
         <td><%= ticket.train.route.title %></td>
         <td><%= link_to 'удалить билет', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'просмотр', ticket %></td>
       </tr>
     <% end %>
   </tbody>
