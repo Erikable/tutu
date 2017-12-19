@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     if current_user.admin?
       admin_trains_path
     else
-      search
+      search_path
     end  
   end
 
