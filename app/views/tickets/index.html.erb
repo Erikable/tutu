@@ -11,9 +11,9 @@
   </thead>
 
   <tbody>
-    <% @tickets.each do |ticket| %>
+    <% @ticket.each do |ticket| %>
       <tr>
-        <td><%= current_user.email %></td>
+        <td><%= ticket.user.email %></td>
         <td><%= ticket.number %></td>
         <td><%= ticket.train.number %></td>
         <td><%= ticket.train.route.title %></td>

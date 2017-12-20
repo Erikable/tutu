@@ -4,6 +4,7 @@ class TicketsController < ApplicationController
 
   def index
     @tickets = Ticket.all
+    @ticket = current_user.tickets
   end
 
   def new
@@ -12,7 +13,6 @@ class TicketsController < ApplicationController
   end
 
   def create
-    #@ticket = Ticket.new(ticket_params)
     @ticket = current_user.tickets.new(ticket_params)
     if @ticket.save
       redirect_to @ticket

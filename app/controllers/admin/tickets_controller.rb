@@ -1,6 +1,6 @@
 class Admin::TicketsController < Admin::BaseController
 
-  before_action :set_ticket, only: [:show, :edit]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
     @tickets = Ticket.all
@@ -14,7 +14,7 @@ class Admin::TicketsController < Admin::BaseController
   def create
     @ticket = Ticket.new(ticket_params)
     if @ticket.save
-      redirect_to @ticket
+      redirect_to [:admin, @ticket]
     else
       render :new
     end
@@ -24,6 +24,19 @@ class Admin::TicketsController < Admin::BaseController
   end
 
   def edit  
+  end
+
+  def update
+    if @ticket.update(ticket_params)
+      redirect_to [:admin, @ticket]
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @ticket.destroy
+    redirect_to admin_tickets_path
   end
 
 

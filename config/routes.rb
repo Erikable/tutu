@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   resource :search, only: [:show, :create]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'railway_stations#index'
+  root 'tickets#index'
 end
