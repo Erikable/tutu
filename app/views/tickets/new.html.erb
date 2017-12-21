@@ -34,10 +34,14 @@
     <%= form.text_field :passport, id: :ticket_passport %>
   </div>
 
-  <div class="field">
-    <%= form.label :users_ids, "Покупатель" %>
-    <%= form.collection_select :user_id, User.all, :id, :name,{},{ multiple: false } %>
-  </div>
+  <% if current_user.admin? %>
+    <div class="field">
+      <%= form.label :users_ids, "Покупатель" %>
+      <%= form.collection_select :user_id, User.all, :id, :email, {}, { multiple: false } %>
+      </div>
+  <% end %>
+
+
 
   <div class="actions">
     <%= form.submit "Создать" %>

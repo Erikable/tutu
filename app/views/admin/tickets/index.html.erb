@@ -1,0 +1,26 @@
+<p>все проданные билеты Admin:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>покупатель</th>
+      <th>№ билета</th>
+      <th>№ поезда</th>
+      <th>маршрут</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>
+        <td><%= ticket.user.email %></td>
+        <td><%= ticket.number %></td>
+        <td><%= ticket.train.number %></td>
+        <td><%= ticket.train.route.title %></td>
+        <td><%= link_to 'Показать', [:admin, ticket] %></td>
+        <td><%= link_to 'Редактировать', edit_admin_ticket_path(ticket) %></td>
+        <td><%= link_to 'Удалить', [:admin, ticket], method: :delete, data: {confirm: 'Вы уверены?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

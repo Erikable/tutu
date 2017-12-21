@@ -1,0 +1,18 @@
+<p>
+  <strong>Название: </strong>
+  <%= @railway_station.title %>
+</p>
+
+<strong>Поезда на станции: </strong>
+  <% if @railway_station.trains.empty? %>
+    На станции поездов нет
+  <% else %>
+    <ul>
+    <% @railway_station.trains.each do |train| %>
+      <li><%= train.number %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+<%= link_to 'Edit', edit_admin_railway_station_path(@railway_station) %> |
+<%= link_to 'Back', admin_railway_stations_path %>

@@ -1,0 +1,12 @@
+<%= form_with(model: [:admin, @railway_station], local: true) do |form| %>
+  <%= render 'common/errors', resource: @railway_station %>  
+
+ <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :railway_station_title %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
