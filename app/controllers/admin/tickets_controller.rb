@@ -1,5 +1,4 @@
 class Admin::TicketsController < Admin::BaseController
-  before_action :authenticate_user!, only: [:create, :index, :edit, :update, :destroy]
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   def index
