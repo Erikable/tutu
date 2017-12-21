@@ -14,7 +14,7 @@
     
     <% if user_signed_in? %>
       <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
-      <p>  I'm <%= current_user.email %>
+      <p>  Привет, I'm <%= current_user.name %>
         <% if current_user.admin?%>
         (Администратор)
         <% else %>
@@ -28,6 +28,7 @@
     <%= yield %>
     <br>
     <hr>
+    <% if user_signed_in? %>
       <% if current_user.admin? %>
         <%= link_to 'ссылка на поездa', admin_trains_path %>
         <%= link_to 'ссылка на маршруты', admin_routes_path %>
@@ -38,6 +39,7 @@
         <%= link_to 'мои билеты', tickets_path %>
       <% end %>
     | #юзерница
+    <% end %>
     <hr>
     <p> (с) 2017 Erik  | Учебный проект в <%= link_to "онлайн-школе Thinknetica.",  "http://www.thinknetica.com" %><p>
   </body>

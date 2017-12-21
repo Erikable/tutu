@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
   
   #resources :users
+  resources :pages
   resources :tickets
   resource :search, only: [:show, :create]
 
