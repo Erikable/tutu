@@ -35,8 +35,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :users_ids, "Покупатель" %>
-    <%= form.collection_select :user_id, User.all, :id, :name,{},{ multiple: false } %>
+    <%= form.label :users_ids, "для юзера:" %>
+    <%= form.collection_select :user_id, User.all, :id, :email,{},{ multiple: false } %>
   </div>
 
   <div class="actions">

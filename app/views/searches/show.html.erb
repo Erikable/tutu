@@ -30,8 +30,13 @@
             <td><%= @start_station.departure_at(route) %></td>
             <td><%= @end_station.arrival_at(route) %></td>
             <td><%= train.route.title %></td>
-            <td> <%= link_to "купить", new_ticket_path(train_id: train.id, 
-            start_station_id: @start_station, end_station_id: @end_station) %> </td>
+            <% if current_user.admin? %>
+              <td> <%= link_to "купить", new_admin_ticket_path(train_id: train.id, 
+                start_station_id: @start_station, end_station_id: @end_station) %> </td>
+            <% else %>
+              <td> <%= link_to "купить", new_ticket_path(train_id: train.id, 
+                start_station_id: @start_station, end_station_id: @end_station) %> </td>
+            <% end %>
           <td>
         <%end%> 
       <%end%>

@@ -15,4 +15,6 @@
 <p>Фамилия: <%= @ticket.family_name %></p>
 <p>Отчество: <%= @ticket.patronymic %></p>
 <p>Паспорт: <%= @ticket.passport %></p>
-<p>билет был приобретен: <strong><%= current_user.email %></strong></p>
+<p>билет был приобретен: <strong><%= @ticket.user.email %></strong></p>
+<%#<p>билет был приобретен: <strong><%= current_user.email %></strong></p>
+

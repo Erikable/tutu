@@ -28,15 +28,16 @@
     <%= yield %>
     <br>
     <hr>
-      <%#<%= link_to 'ссылка на поездa', trains_path %>
-      <%#<%= link_to 'ссылка на маршруты', routes_path %>
-      <%#<%= link_to 'ссылка на станции', railway_stations_path %>
-      
-      <%#<%= link_to 'ссылка на вагоны', wagons_path %>
-      <%= link_to 'поиск', search_path %>
-      <%= link_to 'мои билеты', tickets_path %>
-      <%#<%= link_to 'Юзер', users_path %>
-    | #это временно для удобства
+      <% if current_user.admin? %>
+        <%= link_to 'ссылка на поездa', admin_trains_path %>
+        <%= link_to 'ссылка на маршруты', admin_routes_path %>
+        <%= link_to 'ссылка на станции', admin_railway_stations_path %>
+        <%= link_to 'билеты', admin_tickets_path %>
+      <% else %>
+        <%= link_to 'поиск', search_path %>
+        <%= link_to 'мои билеты', tickets_path %>
+      <% end %>
+    | #юзерница
     <hr>
     <p> (с) 2017 Erik  | Учебный проект в <%= link_to "онлайн-школе Thinknetica.",  "http://www.thinknetica.com" %><p>
   </body>
