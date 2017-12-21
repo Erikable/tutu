@@ -47,5 +47,4 @@ class Admin::RoutesController < Admin::BaseController
   def route_params
     params.require(:route).permit(:title, railway_station_ids: [] )
   end
-
 end

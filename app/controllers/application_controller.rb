@@ -6,8 +6,6 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :second_name, :email, :password])
-    #devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :second_name, :email, :password) }
-    #devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :second_name, :email, :password, :current_password, :is_female, :date_of_birth) }
   end
 
   def after_sign_in_path_for(resource)
@@ -21,5 +19,4 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
       search_path
   end
-
 end

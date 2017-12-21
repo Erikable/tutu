@@ -3,12 +3,10 @@ class TicketsController < ApplicationController
   before_action :set_ticket, only: [:show, :edit, :destroy]
 
   def index
-    #@tickets = Ticket.all
     @tickets = current_user.tickets
   end
 
   def new
-    #@ticket = Ticket.new(params[:start_station_id, :end_station_id, :train_id])
     @ticket = Ticket.new(params.permit(:start_station_id, :end_station_id, :train_id))
   end
 
