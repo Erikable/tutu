@@ -36,7 +36,7 @@
 
   <div class="field">
     <%= form.label :user_id, "для юзера:" %>
-    <%= form.collection_select :user_id, User.all, :id, :email,{} %>
+    <%= form.collection_select :user_id, User.all, :id, :email %>
   </div>
 
   <div class="actions">

@@ -6,7 +6,6 @@ class Admin::TicketsController < Admin::BaseController
   end
 
   def new
-    #@ticket = Ticket.new(params[:start_station_id, :end_station_id, :train_id])
     @ticket = Ticket.new(params.permit(:start_station_id, :end_station_id, :train_id))
   end
 
@@ -38,7 +37,6 @@ class Admin::TicketsController < Admin::BaseController
     redirect_to admin_tickets_path
   end
 
-
   def set_ticket
     @ticket = Ticket.find(params[:id])
   end
@@ -46,5 +44,4 @@ class Admin::TicketsController < Admin::BaseController
   def ticket_params
       params.require(:ticket).permit(:number, :first_name, :family_name, :patronymic, :passport, :start_station_id, :end_station_id, :train_id, :user_id)
   end
-
 end
