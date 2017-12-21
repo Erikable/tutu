@@ -1,5 +1,5 @@
-<%= form_with(model: [:admin, [@train, @wagon.becomes(Wagon)]], local: true) do |form| %>
-  <%= render 'common/errors', resource: wagon %>
+<%= form_with(model: [:admin, @train, @wagon.becomes(Wagon)], local: true) do |form| %>
+  <%= render 'common/errors', resource: @wagon %>
 
     <div class="field">
       <%= form.label :type, "Тип вагона: " %>

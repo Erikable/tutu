@@ -20,7 +20,7 @@ class Admin::RailwayStationsController < Admin::BaseController
     @railway_station = RailwayStation.new(railway_station_params)
 
     if @railway_station.save
-      redirect_to @railway_station
+      redirect_to [:admin, @railway_station]
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def update
     if @railway_station.update(railway_station_params)
-      redirect_to @railway_station
+      redirect_to [:admin, @railway_station]
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class Admin::RailwayStationsController < Admin::BaseController
 
   def destroy
     @railway_station.destroy
-    redirect_to railway_stations_path
+    redirect_to [:admin, railway_stations_path]
   end
 
   def update_position

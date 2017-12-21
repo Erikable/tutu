@@ -14,12 +14,7 @@
     
     <% if user_signed_in? %>
       <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
-      <p> Привет, I'm <%= current_user.name %>
-      <% if current_user.admin?%>
-        (Администратор)
-        <% else %>
-        (пользователь)
-        <% end %></p>
+      <p> Привет, I'm <%= current_user.name %> (I'm admin)</p>
     <% else %>
       <%= link_to 'Войти', new_user_session_path %>
     <% end %>
