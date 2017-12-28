@@ -1,0 +1,23 @@
+ru:
+  activerecord:
+    models:
+      ticket: 'Билет'
+      railway_station: 'Станция'  
+      train: 'Поезд'
+    
+    attributes:
+      ticket:
+        number: 'Номер'
+      railway_station:
+        title: 'Название'
+      train:
+        number: 'Номер'
+
+    errors:
+      messages:
+        blank: "Не может быть пустым"
+      models:
+        railway_station:
+          attributes:
+            title:
+              blank: "Должно быть указано"
