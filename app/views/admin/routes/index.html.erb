@@ -1,4 +1,4 @@
-<h1>Маршрутов список Admin</h1>
+<h1><%= t('.title') %></h1>
 
 <table>
   <thead>
@@ -12,9 +12,9 @@
     <% @routes.each do |route| %>
       <tr>
         <td><%= route.title %></td>
-        <td><%= link_to 'Показать', [:admin, route] %></td>
-        <td><%= link_to 'Редактир', edit_admin_route_path(route) %></td>
-        <td><%= link_to 'Делит', [:admin, route], method: :delete, data: { confirm: 'Серьезно удалить?' } %></td>
+        <td><%= link_to t('common.show'), [:admin, route] %></td>
+        <td><%= link_to t('common.edit'), edit_admin_route_path(route) %></td>
+        <td><%= link_to t('common.destroy'), [:admin, route], method: :delete, data: { confirm: 'Серьезно удалить?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'Новый маршрут создать', new_admin_route_path %>
+<%= link_to t('.new_route'), new_admin_route_path %>

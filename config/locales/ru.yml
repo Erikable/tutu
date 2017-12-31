@@ -1,3 +1,46 @@
 ru:
   common:
-    errors: 'ошибка формы'
+    errors: 'Oшибка формы'
+    back: 'Назад'
+    edit: 'Редактировать'
+    show: 'Показать'
+    destroy: 'Удалить'
+
+  admin:
+    
+    railway_stations:
+      new:
+        title: 'Новенькая станция от админа'
+      index:
+        new_station: 'Создать новую станцию'
+      form:
+        submit: "%{action} станцию"
+      show:
+        station_title: 'Название станции:'
+        trains_on_station: 'На этой станции поезда:'
+        no_trains_on_station: 'на станции нет поездов'
+      edit:
+        title: 'Редактировать станцию от админа'
+
+    routes:
+      edit:
+        title: 'изменить маршрут от админа '
+      index: 
+        title: 'Список всех маршрутов'
+        new_route: 'Создать новый маршрут'
+      new:
+        title: 'создание нового маршрута'
+
+    tickets:
+      form:
+        submit: "Изменить"
+      show:
+        bayer: 'Покупатель билета:'
+        passport: 'Паспорт: '
+        number: 'Номер билета: '
+        first_name: 'Имя'
+        family_name: 'Фамилия: '
+        patronymic: 'Отчество: '
+
+
+

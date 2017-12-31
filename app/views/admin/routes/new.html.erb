@@ -1,16 +1,7 @@
-<h1>Добавить маршрут Admin</h1>
+<h1><%= t('.title') %></h1>
 
 <%= form_with(model: [:admin, @route], local: true) do |form| %>
-  <% if @route.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@route.errors.count, "error") %> prohibited this route from being saved:</h2>
-      <ul>
-      <% @route.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render 'common/errors', resource: @route %>
 
   <div class="field">
     <%= form.label :title %>
@@ -28,4 +19,4 @@
 <% end %>
 
 
-<%= link_to 'Назад', admin_routes_path %>
+<%= link_to t('common.back'), admin_routes_path %>
