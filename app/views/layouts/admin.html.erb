@@ -9,26 +9,54 @@
   </head>
 
   <body>
-    <p id="notice" class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%#<p id="notice" class="notice"><%= notice %><%#</p>
+    <%#<p class="alert"><%= alert %><%#</p>%>
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand">Tutu</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <% if user_signed_in? %>
+              <% if current_user.admin%>
+                <li><%= link_to 'ссылка на поездa', admin_trains_path %></li>
+                <li><%= link_to 'ссылка на маршруты', admin_routes_path %></li>
+                <li><%= link_to 'ссылка на станции', admin_railway_stations_path %></li>
+                <li><%= link_to 'билеты', admin_tickets_path %></li>
+              <% else %>
+                <li><%= link_to 'мои билеты', tickets_path %></li>
+              <% end %>
+                <li><%= link_to 'поиск', search_path %></li>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to 'Выйти', destroy_user_session_path, method: :delete %></li>
+                </ul>
+            <% else %>
+              <li><%= link_to 'поиск', search_path %></li>
+              <li><%= link_to 'Войти', new_user_session_path  %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
     
-    <% if user_signed_in? %>
-      <%= link_to 'Выйти', destroy_user_session_path, method: :delete %>
-      <p> Привет, I'm <%= current_user.name %> (I'm admin)</p>
-    <% else %>
-      <%= link_to 'Войти', new_user_session_path %>
-    <% end %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <%= bootstrap_flash %>
+          <%= yield %>
+        </div>
+      </div>
+    </div>
 
-    <%= yield %>
-    <br>
-    <hr>
-      <%= link_to 'ссылка на поездa', admin_trains_path %>
-      <%= link_to 'ссылка на маршруты', admin_routes_path %>
-      <%= link_to 'ссылка на станции', admin_railway_stations_path %>
-      <%= link_to 'билеты', admin_tickets_path %>
-      <%= link_to 'поиск', search_path %>
-    | # админка
-    <hr>
-    <p> (с) 2017 Erik  | Учебный проект в <%= link_to "онлайн-школе Thinknetica.",  "http://www.thinknetica.com" %><p>
+    
+    <div id="footer">
+      <div class="navbar navbar-inner  navbar-fixed-bottom">
+        <p class="muted credit"><center>(с) AdminPath2018 | Учебный проект в <%= link_to "онлайн-школе Thinknetica.",  "http://www.thinknetica.com" %></center></p>
+      </div>
+    </div>
   </body>
 </html>

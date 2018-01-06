@@ -1,48 +1,85 @@
-<td>
-  <%= form_tag(search_path, method: "post") do %>
-  start from:
-  <%= select_tag :start_station_id, options_from_collection_for_select(@stations, :id, :title) %> 
-  to:
-  <%= select_tag :end_station_id, options_from_collection_for_select(@stations, :id, :title)%>
-  <br>
-  <br>
-  <%= submit_tag "искать" %>
-  <% end %>
-</td>
-<hr>
+<div class="page-header">
+  <h1>Поиск <small>найди свой билет</small></h1>
+</div>
 
-<% if @routes.present? %>
-  <table>
-    <thead>
-      <tr>
-        <th>поезд</th>
-        <th>отправление</th>
-        <th>прибытие</th>
-        <th>маршрут</th>
-        <th>билет</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @routes.each do |route| %>
-        <% route.trains.each do |train| %>
-          <tr>
-            <td><%= train.number %></td>
-            <td><%= @start_station.departure_at(route) %></td>
-            <td><%= @end_station.arrival_at(route) %></td>
-            <td><%= train.route.title %></td>
-            <% if user_signed_in? %>
-            <% if current_user.admin? %>
-              <td> <%= link_to "купить", new_admin_ticket_path(train_id: train.id, 
-                start_station_id: @start_station, end_station_id: @end_station) %> </td>
-            <% else %>
-              <td> <%= link_to "купить", new_ticket_path(train_id: train.id, 
-                start_station_id: @start_station, end_station_id: @end_station) %> </td>
-            <% end %>
-            <% end %>
-          <td>
-        <%end%> 
-      <%end%>
-    </tbody>
-  </table>
-  <br>
-<% end %>
+  <%= form_tag(search_path, method: "post") do %>
+    <div class="row">
+      <div class="col-md-4"> Станция отправления</div>
+      <div class="col-md-4"> Станция прибытия</div>
+      <div class="col-md-4"> </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+      <%= select_tag :start_station_id, options_from_collection_for_select(@stations, :id, :title), class: "form-control"%>
+    </div>   
+    <div class="row">
+      <div class="col-md-4">
+      <%= select_tag :end_station_id, options_from_collection_for_select(@stations, :id, :title), class: "form-control"%>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+      <%= submit_tag "искать", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+
+<br>
+<br>
+
+  <% if @routes.present? %>    
+    <div class="container">
+      <h3>Результат: </h3>
+     
+    <div class="row">
+      <div class="col-md-2"> Поезд </div>
+      <div class="col-md-2"> Маршрут </div>
+      <div class="col-md-2"> Отправление</div>
+      <div class="col-md-2"> Прибытие</div>
+      <div class="col-md-2"> </div>
+    </div>
+
+    <% @routes.each do |route| %>
+      <% route.trains.each do |train| %>
+        
+        <div class="row">
+          <div class="col-md-2">
+            <%= train.number %>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2">
+            <%= train.route.title %>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2">
+            <%= @start_station.departure_at(route) %>
+        </div>
+
+        <div class="row">
+          <div class="col-md-2">
+            <%= @end_station.arrival_at(route) %>
+        </div>
+
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <div class="row">
+              <div class="col-md-2">
+                <%= link_to "купить", new_admin_ticket_path(train_id: train.id, 
+                start_station_id: @start_station, end_station_id: @end_station), class: "btn btn-primary" %>
+            </div>
+          <% else %>
+            <div class="row">
+              <div class="col-md-2">
+                <%= link_to "купить", new_ticket_path(train_id: train.id, 
+                start_station_id: @start_station, end_station_id: @end_station), class: "btn btn-primary" %>
+            </div>       
+          <% end %>
+        <% end %> 
+      <% end %>
+    </div>
+    <% end %>
+  <% end %>
+
+
+
+
