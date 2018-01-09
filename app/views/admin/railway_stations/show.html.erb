@@ -1,11 +1,11 @@
 <p>
-  <strong>Название: </strong>
+  <strong><%= t('.station_title') %></strong>
   <%= @railway_station.title %>
 </p>
 
-<strong>Поезда на станции: </strong>
+<strong><%= t('.trains_on_station')%> </strong>
   <% if @railway_station.trains.empty? %>
-    На станции поездов нет
+    <%= t('.no_trains_on_station')%> 
   <% else %>
     <ul>
     <% @railway_station.trains.each do |train| %>
@@ -14,5 +14,5 @@
     </ul>
   <% end %>
 
-<%= link_to 'Edit', edit_admin_railway_station_path(@railway_station) %> |
-<%= link_to 'Back', admin_railway_stations_path %>
+<%= link_to t('common.edit'), edit_admin_railway_station_path(@railway_station) %> |
+<%= link_to t('common.back'), admin_railway_stations_path %>

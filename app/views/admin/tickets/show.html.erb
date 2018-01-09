@@ -10,9 +10,9 @@
 <p>прибытие на: <%= @ticket.end_station.title %></p>
 
 <p> Информация о билете: </p>
-<p>билет №: <%= @ticket.number %></p>
-<p>Имя: <%= @ticket.first_name %></p>
-<p>Фамилия: <%= @ticket.family_name %></p>
-<p>Отчество: <%= @ticket.patronymic %></p>
-<p>Паспорт: <%= @ticket.passport %></p>
-<p>билет был приобретен: <strong><%= @ticket.user.email %></strong></p>
+<p><%= t('.number') %><%= @ticket.number %></p>
+<p><%= t('.first_name') %>:  <%= @ticket.first_name %></p>
+<p><%= t('.family_name') %> <%= @ticket.family_name %></p>
+<p><%= t('.patronymic') %><%= @ticket.patronymic %></p>
+<p><%= t('.passport') %><%= @ticket.passport %></p>
+<p><%= t('.bayer')%> <strong><%= @ticket.user.email %></strong></p>
