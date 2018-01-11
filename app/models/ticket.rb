@@ -7,6 +7,7 @@ class Ticket < ApplicationRecord
   validates :first_name, presence: true
   validates :family_name, presence: true
   validates :passport, presence: true
+
   after_create :buy_notification
   after_destroy :destroy_notification
   
@@ -22,4 +23,5 @@ class Ticket < ApplicationRecord
   def destroy_notification
     TicketsMailer.delete_ticket(self.user, self).deliver_now
   end
+
 end
