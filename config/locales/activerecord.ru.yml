@@ -1,0 +1,36 @@
+ru:
+  activerecord:
+    
+    models:
+      ticket: 'Билет'
+      railway_station: 'Станция'  
+      train: 'Поезд'
+    
+    attributes:
+      
+      ticket:
+        number: 'Номер'
+        first_name: 'Имя'
+        family_name: 'Фамилия'
+        patronymic: 'Отчество'
+        passport: 'Паспорт'
+      
+      railway_station:
+        title: 'Название'
+      
+      train:
+        number: 'Номер'
+
+    errors:
+      messages:
+        blank: "- это поле не может быть пустым"
+      models:
+        railway_station:
+          attributes:
+            title:
+              blank: "Должно быть указано"
+
+        routes:
+          attributes:
+            title:
+              blank: "dvddv"

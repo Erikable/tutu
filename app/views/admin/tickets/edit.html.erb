@@ -3,7 +3,7 @@
 
 
 
-<div>
+  <div>
     <%= form.hidden_field :train_id, :value => @ticket.train_id %>
     <%= form.hidden_field :start_station_id, :value => @ticket.start_station_id %>
     <%= form.hidden_field :end_station_id, :value => @ticket.end_station_id %>
@@ -17,22 +17,22 @@
   <p>данные о пассажире:</p>
     
   <div class="field">
-    <%= form.label "Имя" %>
+    <%= form.label :first_name %>
     <%= form.text_field :first_name, id: :ticket_first_name %>
   </div>
   
   <div class="field">
-    <%= form.label "Фамилия" %>
+    <%= form.label :family_name %>
     <%= form.text_field :family_name, id: :ticket_family_name %>
   </div>
 
   <div class="field">
-    <%= form.label "Отчество" %>
+    <%= form.label :patronymic %>
     <%= form.text_field :patronymic, id: :ticket_patronymic %>
   </div>
 
   <div class="field">
-    <%= form.label "Номер паспорта" %>
+    <%= form.label :passport %>
     <%= form.text_field :passport, id: :ticket_passport %>
   </div>
 
@@ -43,7 +43,7 @@
   
 
   <div class="actions">
-    <%= form.submit 'Изменить' %>
+    <%= form.submit t('admin.tickets.form.submit')%>
   </div>
 
 <% end %>

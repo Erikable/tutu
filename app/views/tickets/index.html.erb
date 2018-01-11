@@ -1,26 +1,37 @@
 <p>все проданные билеты:</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>покупатель</th>
-      <th>№ билета</th>
-      <th>№ поезда</th>
-      <th>маршрут</th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="col-md-2"> Покупатель </div>
+  <div class="col-md-2"> № билета </div>
+  <div class="col-md-2"> № поезда</div>
+  <div class="col-md-2"> Маршрут</div>
+  <div class="col-md-2"> </div>
+  <div class="col-md-2"> </div>
+</div>
+<% @tickets.each do |ticket| %>
+  <div class="row">
+          <div class="col-md-2">
+            <%= ticket.user.email %>
+          </div>
+  <div class="row">
+          <div class="col-md-2">
+            <%= ticket.number %>
+          </div>
+  <div class="row">
+          <div class="col-md-2">
+            <%= ticket.train.number %>
+          </div>
+  <div class="row">
+          <div class="col-md-2">
+            <%= ticket.train.route.title %>
+          </div>
+  <div class="row">
+          <div class="col-md-2">
+            <%= link_to 'удалить билет', ticket, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %>
+          </div>
+  <div class="row">
+          <div class="col-md-2">
+            <%= link_to 'просмотр', ticket, class: "btn btn-primary" %>
+          </div>
+<% end %>
 
-  <tbody>
-    <% @tickets.each do |ticket| %>
-      <tr>
-        <td><%= ticket.user.email %></td>
-        <td><%= ticket.number %></td>
-        <td><%= ticket.train.number %></td>
-        <td><%= ticket.train.route.title %></td>
-        <td><%= link_to 'удалить билет', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'просмотр', ticket %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>

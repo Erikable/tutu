@@ -1,5 +1,5 @@
-<h1>New Railway Station Admin</h1>
+<h1><%= t('.title') %></h1>
 
 <%= render 'form', railway_station: [:admin, @railway_station] %>
 
-<%= link_to 'Back', admin_railway_stations_path %>
+<%= link_to t('common.back'), admin_railway_stations_path %>
