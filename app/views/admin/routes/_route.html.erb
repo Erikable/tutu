@@ -1,0 +1,13 @@
+<tr>
+  <td>
+    <div id="route_title_<%= route.id %>" >
+    <%= route.title %>
+    </div>
+    <%= render 'form', route: route, hidden: true %>    
+  </td>
+  <td><%= link_to t('common.show'), [:admin, route] %></td>
+  <td><%= link_to t('common.edit'), '', class: 'edit_route', data: {route_id: route.id} %></td>
+  <td><%= link_to t('common.destroy'), [:admin, route], method: :delete, data: { confirm: 'Серьезно удалить?' } %>
+    
+  </td>
+</tr>

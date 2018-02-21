@@ -1,22 +1,3 @@
 <h1><%= t('.title') %></h1>
-
-<%= form_with(model: [:admin, @route], local: true) do |form| %>
-<%= render 'common/errors', resource: @route %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :route_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :railway_station_ids, 'станции в маршруте' %>
-    <%= form.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'создать' %>
-  </div>
-<% end %>
-
-
+<%= render 'form', route: @route, hidden: false %>
 <%= link_to t('common.back'), admin_routes_path %>
