@@ -1,7 +1,12 @@
 <tr>
-  <td><%= railway_station.title %></td>
+  <td>
+    <div id="railway_station_title_<%= railway_station.id %>">
+    <%= railway_station.title %>
+    </div>
+    <%= render 'form', railway_station: railway_station, hidden: true %>
+  </td>
     <td><%= link_to t('common.show'), [:admin, railway_station] %></td>
-    <td><%= link_to t('common.edit'), edit_admin_railway_station_path(railway_station) %></td>
+    <td><%= link_to t('common.edit'), '', class: 'edit_station', data: { station_id: railway_station.id} %></td>
     <td><%= link_to t('common.destroy'), [:admin, railway_station], method: :delete, data: { confirm: 'Are you sure?' } %></td>
 </tr>
 
