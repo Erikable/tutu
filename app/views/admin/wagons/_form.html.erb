@@ -1,32 +1,32 @@
 <%= form_with(model: [:admin, @train, @wagon.becomes(Wagon)], local: true) do |form| %>
   <%= render 'common/errors', resource: @wagon %>
 
-    <div class="field">
+    <div class="field set_p">
       <%= form.label :type, "Тип вагона: " %>
       <%= form.select :type, ['PlatscartWagon', 'CoupeWagon', 'SvWagon','SeatWagon'] %>
     </div> 
 
-    <div class="field">
+    <div class="field up_p">
       <%= form.label :top_seats, "Верхних мест: " %>
       <%= form.number_field :top_seats %>
     </div>
 
-    <div class="field">
+    <div class="field down_p">
       <%= form.label :bottom_seats, "Нижних мест: " %>
       <%= form.number_field :bottom_seats %>
     </div>
 
-    <div class="field">
+    <div class="field up_side_p">
       <%= form.label :side_top_seats, "Боковых Верхних мест: " %>
       <%= form.number_field :side_top_seats %>
     </div>
 
-    <div class="field">
+    <div class="field down_side_p">
       <%= form.label :side_bottom_seats, "Боковых Нижних мест: " %>
       <%= form.number_field :side_bottom_seats %>
     </div>
 
-    <div class="field">
+    <div class="field seat_p">
       <%= form.label :seat_seats, "Сидячих мест: " %>
       <%= form.number_field :seat_seats %>
     </div>
