@@ -1,5 +1,5 @@
-<%= form_with(model: [:admin, @train], local: true) do |form| %>
-  <%= render 'common/errors', resource: @train %>  
+<%= form_for [:admin, train], html: { style: "display: #{hidden ? 'none' : 'block'}" } do |form| %>
+  <%= render 'common/errors', resource: train %>  
 
   <div class="field">
     <%= form.label :number  %>
@@ -23,7 +23,7 @@
   
 
   <div class="actions">
-    <%= form.submit "#{ @train.new_record? ? 'Создать' : 'Изменить' }", class: "btn btn-primary"%>
+    <%= form.submit "#{ train.new_record? ? 'Создать' : 'Изменить' }", class: "btn btn-primary"%>
   </div>
 
 <% end %>

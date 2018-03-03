@@ -9,17 +9,12 @@
   </thead>
 
   <tbody>
-    <% @routes.each do |route| %>
-      <tr>
-        <td><%= route.title %></td>
-        <td><%= link_to t('common.show'), [:admin, route] %></td>
-        <td><%= link_to t('common.edit'), edit_admin_route_path(route) %></td>
-        <td><%= link_to t('common.destroy'), [:admin, route], method: :delete, data: { confirm: 'Серьезно удалить?' } %></td>
-      </tr>
-    <% end %>
+    <%= render @routes %>
   </tbody>
 </table>
 
 <br>
-
 <%= link_to t('.new_route'), new_admin_route_path %>
+<br>
+<br>
+<br>

@@ -1,0 +1,18 @@
+<%= form_for [:admin, route], html: {style: "display: #{hidden ? 'none' : 'block'}"} do |form| %>
+  <%= render 'common/errors', resource: route %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :route_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :railway_station_ids, 'станции в маршруте' %>
+    <%= form.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "#{route.new_record? ? 'Создать' : 'Изменить'}" %>
+  </div>
+<% end %>
+ 

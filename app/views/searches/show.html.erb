@@ -2,8 +2,8 @@
   <h1>Поиск <small>найди свой билет</small></h1>
 </div>
 
-  <%= form_tag(search_path, method: "post") do %>
     <div class="row">
+      <%= form_tag(search_path, method: "post", class: 'search_form') do %>
       <div class="col-md-4"> Станция отправления</div>
       <div class="col-md-4"> Станция прибытия</div>
       <div class="col-md-4"> </div>
@@ -18,7 +18,7 @@
     </div>
     <div class="row">
       <div class="col-md-4">
-      <%= submit_tag "искать", class: "btn btn-primary" %>
+      <%= submit_tag "искать", class: 'btn btn-primary find' %>
     </div>
   <% end %>
 
